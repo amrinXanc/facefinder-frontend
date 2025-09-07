@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import API_BASE_URL from "../config";
 import { Link, useNavigate } from 'react-router-dom'
 import '../utils'
 import { handleFailure, handleSuccess } from '../utils'
@@ -26,7 +26,7 @@ const Signup = ({ setAuthenticated }) => {
             return handleFailure(" madarchod ho  tum")
         }
         try{
-            const url = "http://localhost:8080/auth/signup"
+           const url = `${API_BASE_URL}/auth/signup`
             const response = await fetch(url, {
                 method : "POST",
                 headers : {
@@ -87,5 +87,3 @@ const Signup = ({ setAuthenticated }) => {
 }
 
 export default Signup
-
-

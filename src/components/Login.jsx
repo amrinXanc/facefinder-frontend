@@ -25,15 +25,19 @@ const Login = ({ setAuthenticated }) => {
     else if(!password){
         return handleFailure(" please enter the password ")
     }
-    try{
-          const url = `${API_BASE_URL}/auth/login`;
-          const response = await fetch(url, {
-              method : "POST",
-              headers : {
-                  'Content-Type' : 'application/json'
-              },
-              body : JSON.stringify(loginInfo)
-          })
+    try{    
+        
+        
+        
+        const url = `${API_BASE_URL}/auth/login`;
+        console.log(url);
+        const response = await fetch(url, {
+            method : "POST",
+            headers : {
+                'Content-Type' : 'application/json'
+            },
+            body : JSON.stringify(loginInfo)
+        })
   
           const result = await response.json()
           const {success , message, jwtToken, name, error} = result;
