@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { handleFailure, handleSuccess } from "../utils";
-
+import API_BASE_URL from "../config";
 const ResetPassword = () => {
   const { token } = useParams(); // token from URL
   const navigate = useNavigate();
@@ -23,7 +23,7 @@ const ResetPassword = () => {
     }
 
     try {
-      const url = `http://localhost:8080/auth/reset-password/${token}`;
+      const url = `${API_BASE_URL}/auth/reset-password/${token}`;
       const response = await fetch(url, {
         method: "POST",
         headers: {

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { handleFailure, handleSuccess } from "../utils";
-
+import API_BASE_URL from "../config";
 const ForgotPassword = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -19,7 +19,8 @@ const ForgotPassword = () => {
       return handleFailure("Please enter a valid email address");
     }
     try {
-      const response = await fetch("http://localhost:8080/auth/forgot-password", {
+      const url = `${API_BASE_URL}/auth/forgot-password`;
+      const response = await fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),

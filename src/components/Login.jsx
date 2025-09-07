@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import { handleFailure, handleSuccess } from '../utils'
-
+import API_BASE_URL from "../config";
 const Login = ({ setAuthenticated }) => {
   const navigate = useNavigate();
   const [loginInfo, setLoginInfo] = useState({
@@ -26,7 +26,7 @@ const Login = ({ setAuthenticated }) => {
         return handleFailure(" please enter the password ")
     }
     try{
-          const url = "http://localhost:8080/auth/login"
+          const url = `${API_BASE_URL}/auth/login`;
           const response = await fetch(url, {
               method : "POST",
               headers : {
