@@ -23,7 +23,7 @@ const Signup = ({ setAuthenticated }) => {
         e.preventDefault()
         const {name, email, password} = signupinfo
         if(!name || !email || !password){
-            return handleFailure(" madarchod ho  tum")
+            return handleFailure(" please enter all the details ")
         }
         try{
            const url = `${API_BASE_URL}/auth/signup`
